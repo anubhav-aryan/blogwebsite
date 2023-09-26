@@ -21,7 +21,7 @@ export default function Home() {
         setError("Error Fetching Posts");
       }
     }
-  }, []);  
+  },  
     
   return (
     <>

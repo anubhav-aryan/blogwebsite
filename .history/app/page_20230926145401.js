@@ -18,11 +18,7 @@ export default function Home() {
         const data = await axios.get("/api/posts");
         setPosts(data.data);
       }catch(error){
-        setError("Error Fetching Posts");
       }
-    }
-  }, []);  
-    
   return (
     <>
 

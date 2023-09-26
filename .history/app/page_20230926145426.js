@@ -20,9 +20,7 @@ export default function Home() {
       }catch(error){
         setError("Error Fetching Posts");
       }
-    }
-  }, []);  
-    
+      
   return (
     <>
 
