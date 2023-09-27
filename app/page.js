@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Tag from "components/cards/Tag.jsx";
 import Image from "next/image";
+import BlogCard from "@/components/cards/BlogCard";
 
 export default function Home() {
   const [posts, setPosts] = useState([
@@ -12,7 +13,7 @@ export default function Home() {
       title: "How to use React",
       subheading: "React is a great framework",
       image:
-        "https://images.unsplash.com/photo-1622837137190-4b3b8b5b5b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhY3QlMjBmb3JtYXQlMjB3b3JrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+        "https://dummyimage.com/640x360/fff/aaa",
       tag: "React",
     },
   ]);
@@ -81,7 +82,14 @@ export default function Home() {
               return selectedTags?.includes(post.tag);
             })
             .map((post) => {
-              return <div>Hello World</div>;
+              return (
+                <BlogCard
+                  tag={post.tag}
+                  title={post.title}
+                  subheading={post.subheading}
+                  image={post.image}
+                />
+              );
             })}
       </div>
     </>
