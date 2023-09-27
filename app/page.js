@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 // import PostContext from "../context/PostContext";
 import axios from "axios";
-// import Tag from "../components/Tag";
+import Tag from "components/cards/Tag.jsx";
 import Image from "next/image";
 
 export default function Home() {
@@ -21,10 +21,10 @@ export default function Home() {
 
   // useEffect(() => {
   //   async function fetchData() {
-  //     try{
+  //     try {
   //       const data = await axios.get("/api/posts");
   //       setPosts(data.data);
-  //     }catch(error){
+  //     } catch (error) {
   //       setError("Error Fetching Posts");
   //     }
   //   }
@@ -35,31 +35,54 @@ export default function Home() {
   }
 
   // if (error) {
-  //   return ( <div className="text-center">
-  //     <img src="#" alt="Error" className="w-96"
-  //     />
-  //   </div>
-  //   )
+  //   return (
+  //     <div className="text-center">
+  //       <img src="#" alt="Error" className="w-96" />
+  //     </div>
+  //   );
   // }
 
   return (
     <>
-      <div className="min-h-screen p-10 lg:p:20">
+      <div className="min-h-screen p-10 lg:p-20">
         <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-10 flex flex-col justify-center items-center uppercase tracking-widest h-96 ">
           <span className="text-5xl border-b-4 pb-3 font-bold">
             Anubhav's Blog
           </span>
           <p>Like, share and subscribe</p>
+          {[
+            ...new Set(
+              posts?.map((post) => {
+                return post.tag;
+              })
+            ),
+          ].map((tag) => {
+            return (
+              <Tag
+                key={tag}
+                tag={tag}
+                isSelected={selectedTags.includes(tag)}
+                setSelectedTags={setSelectedTags}
+              />
+            );
+          })}
+          {selectedTags?.length !== 0 && (
+            <button
+              onClick={() => setSelectedTags([])}
+              className="text-white bg-red-500 px-4 py-2 rounded-md"
+            >
+              Clear
+            </button>
+          )}
         </h2>
-        {[
-          ...new Set(
-            post?.map((post) => {
-              return post.tag;
+        {selectedTags?.length === 0 &&
+          posts
+            ?.filter((post) => {
+              return selectedTags?.includes(post.tag);
             })
-          ),
-        ].map((tag) => {
-          return <div>{tag}</div>;
-        })}
+            .map((post) => {
+              return <div>Hello World</div>;
+            })}
       </div>
     </>
   );
