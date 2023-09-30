@@ -3,14 +3,14 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Tag from "@/components/cards/Tag";
 import BlogCard from "@/components/cards/BlogCard";
-// import PostsContext from "@/context/PostsContext";
+import PostsContext from "@/context/PostsContext";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [error, setError] = useState();
 
-  // const { setPosts: postContextFunc } = useContext(PostsContext);
+  const { setPosts: postContextFunc } = useContext(PostsContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,9 +27,9 @@ export default function Home() {
     fetchData();
   }, []);
 
-  // if (posts?.length === 0) {
-  //   return <div className="text-center">No posts found...</div>;
-  // }
+  if (posts?.length === 0) {
+    return <div className="text-center">No posts found...</div>;
+  }
 
   if (error) {
     return (
@@ -47,7 +47,7 @@ export default function Home() {
     <main className="min-h-screen p-10 lg:p:20">
       <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-10 flex flex-col justify-center items-center uppercase tracking-widest h-96">
         <span className="text-5xl border-b-4 pb-3 font-bold">
-          Alfred Web Dev Blog
+          Anubhav's Blog
         </span>
         <p className="text-lg mt-10">
           Like, share and subscribe for more content!

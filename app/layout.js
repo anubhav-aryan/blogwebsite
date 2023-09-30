@@ -7,10 +7,10 @@ import Nav from "@/components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Anubhav's Blog",
-  description: "Just Blogs",
-};
+// export const metadata = {
+//   title: "Alisha's Blog",
+//   description: "Just Blogs",
+// };
 
 export default function RootLayout({ children }) {
   const [posts, setPosts] = useState([]);
@@ -30,3 +30,4 @@ export default function RootLayout({ children }) {
     </PostsContext.Provider>
   );
 }
+
