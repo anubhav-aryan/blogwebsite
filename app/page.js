@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
+// import PostsContext from "../context/PostsContext";
 import axios from "axios";
 import Tag from "@/components/cards/Tag";
 import BlogCard from "@/components/cards/BlogCard";
@@ -47,7 +48,7 @@ export default function Home() {
     <main className="min-h-screen p-10 lg:p:20">
       <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-10 flex flex-col justify-center items-center uppercase tracking-widest h-96">
         <span className="text-5xl border-b-4 pb-3 font-bold">
-          Anubhav's Blog
+          Anubhav's Blogs
         </span>
         <p className="text-lg mt-10">
           Like, share and subscribe for more content!

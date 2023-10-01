@@ -38,7 +38,6 @@ const postSchema = new Schema({
     type: String,
     required: [true, "Please provide an author image"],
   },
-
 });
 
 const Post = models.Post || model("Post", postSchema);

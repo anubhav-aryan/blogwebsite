@@ -17,7 +17,7 @@ const Nav = ({ posts }) => {
   return (
     <nav className="px-16 mt-10 flex justify-between items-center flex-wrap">
       <h1 className="text-4xl font-bold text-gray-800 p-4 mx-auto md:mx-0 text-center">
-        Sub 2 AlfredWebDev
+        Anubhav's Blog
       </h1>
       <div className="relative mx-auto md:mx-0">
         <input

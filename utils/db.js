@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-
 let isConnected = false;
 
-export const connectToDb = async () => {
+export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
@@ -10,8 +9,7 @@ export const connectToDb = async () => {
     return;
   }
 
-  const db = await mongoose.connect(process.env.MONGO_URI, {
-    dbName: process.env.DB_NAME,
+  const db = await mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
